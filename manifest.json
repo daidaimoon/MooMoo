@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "MooMoo",
+  "version": "1.0",
+  "description": "MooMoo - 你的奶牛猫桌宠",
+  "permissions": ["storage", "alarms", "tabs"],
+  "host_permissions": ["https://api.deepseek.com/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["assets/animations/animations_config.js", "content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["assets/animations/**", "challenges.json"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
